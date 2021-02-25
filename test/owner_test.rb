@@ -22,10 +22,13 @@ class OwnerTest < MiniTest::Test
    
     assert_equal 1, owner_1.cars.length
   end
+  def test_it_return_vintage_cars
+    owner_1 = Owner.new('Regina George', 'Heiress')
+    owner_1.buy('1967 Green Ford Mustang')
+    owner_1.buy('2001 Silver BMW 3-Series')
+    owner_1.buy('1963 Red Chevrolet Corvette')
 
-  def test_it_can_identify_vintage_cars
-
-   assert_equal 'answer', object.method
+    assert_equal 2, owner_1.vintage_cars.length
   end
 end
   

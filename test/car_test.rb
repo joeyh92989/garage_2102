@@ -15,15 +15,24 @@ class CarTest < MiniTest::Test
     assert_equal '1967', car_1.year
   end
   def test_it_can_add_additional_attributes
+    
     car_1= Car.new({description: 'Green Ford Mustang', year: '1967'})
-    car_1.add_make("Ford")
-    car_1.add_model("Mustang")
-    car_1.add_color("Green")
-    car_1.add_age(54)
+    car_1.add_make
+    car_1.add_model
+    car_1.add_color
+    car_1.add_age
 
    assert_equal 'Ford', car_1.make
    assert_equal 'Mustang', car_1.model
    assert_equal 'Green', car_1.color
    assert_equal 54, car_1.age
+  end
+  def test_it_can_parse_description_for_other_attributes
+    car_1= Car.new({description: 'Green Ford Mustang', year: '1967'})
+
+    assert_equal 'Ford', car_1.make
+    assert_equal 'Mustang', car_1.model
+    assert_equal 'Green', car_1.color
+    assert_equal 54, car_1.age
   end
 end
